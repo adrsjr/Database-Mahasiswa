@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistem Manajemen Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <h1>🎓 Data Mahasiswa</h1>
+    <div>
+        <button id="loginBtn" onclick="openLogin()">Login Admin</button>
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+    </div>
+</nav>
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+    <div class="login-card">
+        <h2>Login Admin</h2>
+        <input type="text" id="adminUser" placeholder="Username">
+        <input type="password" id="adminPass" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <button class="btn-cancel" onclick="closeLogin()">Batal</button>
+    </div>
+</div>
+
+<!-- DETAIL MODAL -->
+<div class="modal" id="detailModal">
+    <div class="detail-card">
+        <h2>Detail Mahasiswa</h2>
+        <div class="detail-grid" id="detailContent"></div>
+        <button class="btn-close" onclick="closeDetail()">Tutup</button>
+    </div>
+</div>
+
+<div class="container">
+
+    <input
+        type="text"
+        id="searchInput"
+        class="search-box"
+        placeholder="Cari Nama atau NPM..."
+        onkeyup="searchStudent()"
+    >
+
+    <!-- FORM ADMIN -->
+    <div class="form-box" id="adminForm">
+        <h3>Kelola Data Mahasiswa</h3>
+
+        <input type="text" id="npm" placeholder="NPM">
+        <input type="text" id="name" placeholder="Nama Mahasiswa">
+
+        <select id="gender">
+            <option value="">Pilih Jenis Kelamin</option>
+            <option value="Pria">Pria</option>
+            <option value="Wanita">Wanita</option>
+        </select>
+
+        <input type="text" id="major" placeholder="Program Studi">
+        <input type="date" id="entryDate">
+
+        <select id="status">
+            <option value="">Pilih Status Mahasiswa</option>
+            <option value="Aktif">Aktif</option>
+            <option value="Non Aktif">Non Aktif</option>
+        </select>
+
+        <button onclick="saveStudent()">Simpan</button>
+        <button class="btn-reset" onclick="clearForm()">Reset</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>NPM</th>
+                <th>Nama</th>
+                <th>Program Studi</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="studentTable"></tbody>
+    </table>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
